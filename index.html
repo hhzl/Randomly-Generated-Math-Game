@@ -3,22 +3,25 @@
         <link rel="stylesheet" type="text/css" href="custom.css">
     </head>
     <body>
-        <div id="equation">
-            <span id="left1">(</span>
-            <span id="num1"></span>
-            <span id="opt1"></span>
-            <span id="left2">(</span>
-            <span id="num2"></span>
-            <span id="right1">)</span>
-            <span id="opt2"></span>
-            <span id="num3"></span>
-            <span id="right2">)</span>
-            <span>=</span>
-            <span id="equals"></span>
+        <div class="box">
+            <div style="width: 150px; height:10px;"><div id="timer" style="width: 150px; height:10px;"></div></div>
+            <div id="equation">
+                <span id="left1">(</span>
+                <span id="num1"></span>
+                <span id="opt1"></span>
+                <span id="left2">(</span>
+                <span id="num2"></span>
+                <span id="right1">)</span>
+                <span id="opt2"></span>
+                <span id="num3"></span>
+                <span id="right2">)</span>
+                <span>=</span>
+                <span id="equals"></span>
+            </div>
+            <div id="correct" style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(0,255,0,0.4); display: inline-block"></div>
+            <div id="wrong"   style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(255,0,0,0.4); display: inline-block"></div>
+            
         </div>
-        <div id="correct" style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(0,255,0,0.4)"></div>
-        <div id="wrong"   style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(255,0,0,0.4)"></div>
-        <div id="timer" style="width: 150px; height:10px;"></div>
     </body>
 
     <script>
