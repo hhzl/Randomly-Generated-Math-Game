@@ -16,51 +16,57 @@
                 <span id="num3"></span>
                 <span id="right2">)</span>
                 <span>=</span>
-                <span id="equals"></span>
+                <span id="equals">?</span>
             </div>
+            <div style="margin: 5px"></div>
             <div id="correct" style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(0,255,0,0.4); display: inline-block"></div>
             <div id="wrong"   style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(255,0,0,0.4); display: inline-block"></div>
-            
+            <div style="margin: 5px"></div>
+            <div id="score"></div>
         </div>
     </body>
 
     <script>
         var score = 0;
         var plays = 10;
-        var opt1, opt2, num1, num2, num3, options, result, answer, final;
+        var active = false;
+        var opt1, opt2, num1, num2, num3, options, result, answer, final, mainTimer;
         function checkScores(){
             plays--;
-            console.log("checking scores");
+            active = false;
+            clearTimeout(mainTimer);
             setTimeout(function(){
                 if (plays == 0){
+                    //Display final Score
                     console.log("Game has ended");
+                    document.getElementById("score").innerText = ("Final Score: " + score + "/10");
                 }
                 else{
+                    // Play More Rounds
                     gameCountDown();
                 }
             }, 2000)
         }
         function gameCountDown(){
+            // Reset All Variables
             document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,0.4)";
             document.getElementById("correct").innerText = "";
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,0.4)";
             document.getElementById("wrong").innerText = "";
-            console.log("uhhhm");
             getNewEquation();
             document.getElementById("timer").classList.add("timer");
-            setTimeout(wrongAnswer, 10000);
+            mainTimer = setTimeout(wrongAnswer, 10000);
 
         }
         function correctAnswer(inputNum){
-            console.log("Correct answer");
             document.getElementById("timer").classList.remove("timer");
             document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,1)";
             document.getElementById("correct").innerText = final;
+            document.getElementById("wrong").innerText = ".";
             score++;
             checkScores();
         }
         function wrongAnswer(inputNum = "OOT"){
-            console.log("Wrong answer");
             document.getElementById("timer").classList.remove("timer");
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,1)";
             document.getElementById("wrong").innerText = inputNum; 
@@ -70,7 +76,7 @@
         }
         function testForKeys(e){
             console.log("key pressed: " + e.keycode);
-            if (e.keyCode >= 48 && e.keyCode <= 57){ // 0-9 Keys only
+            if (e.keyCode >= 48 && e.keyCode <= 57 && active){ // 0-9 Keys only
                 switch (e.keyCode){
                     case 48: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
                     case 49: if(final == 1){correctAnswer(1);}else{wrongAnswer(1)} break;
@@ -87,7 +93,6 @@
         }
         window.onload = function(){
             document.addEventListener("keydown", testForKeys);
-            console.log("here");
             gameCountDown(); // Replace with an onclick;
         };
         function getRandomInt(min, max) {
@@ -123,6 +128,7 @@
             }
         }
         function getNewEquation(){
+            active = true;
             answer = getRandomInt(0,9); // Always have Answer of 0-9
             var parenthesis = Math.random() >= 0.5; // Random Boolean
             num1 = getRandomInt(0, 25);
@@ -183,7 +189,7 @@
                 document.getElementById("opt2").innerText = opt1;
                 document.getElementById("num3").innerText = num2;
             }        
-            document.getElementById("equals").innerText = final;
+            //document.getElementById("equals").innerText = final;
             if (final != answer){window.alert("For some reason, the expected answer and calculated answer were off!");}
         }
 
