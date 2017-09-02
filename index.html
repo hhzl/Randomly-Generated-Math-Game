@@ -97,7 +97,8 @@
 
         }
         function pressButton(buttonPressed){
-            switch (buttonPressed){
+            if (active){
+                switch (buttonPressed){
                     case 0: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
                     case 1: if(final == 1){correctAnswer(1);}else{wrongAnswer(1)} break;
                     case 2: if(final == 2){correctAnswer(2);}else{wrongAnswer(2)} break;
@@ -109,6 +110,7 @@
                     case 8: if(final == 8){correctAnswer(8);}else{wrongAnswer(8)} break;
                     case 9: if(final == 9){correctAnswer(9);}else{wrongAnswer(9)} break;
                 }
+            }
         }
         function testForKeys(e){
             console.log("key pressed: " + e.keycode);
