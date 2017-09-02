@@ -4,7 +4,7 @@
     </head>
     <body>
         <div class="box">
-            <div style="width: 150px; height:10px;"><div id="timer" style="width: 150px; height:10px;"></div></div>
+            <div style="width: 150px; height:10px; background-color: lightgray"><div id="timer" style="width: 150px; height:10px;"></div></div>
             <div id="equation">
                 <span id="left1">(</span>
                 <span id="num1"></span>
@@ -25,23 +25,51 @@
     </body>
 
     <script>
+        var score = 0;
+        var plays = 10;
         var opt1, opt2, num1, num2, num3, options, result, answer, final;
+        function checkScores(){
+            plays--;
+            console.log("checking scores");
+            setTimeout(function(){
+                if (plays == 0){
+                    console.log("Game has ended");
+                }
+                else{
+                    gameCountDown();
+                }
+            }, 2000)
+        }
         function gameCountDown(){
-
-            //var timer = setTimeout(wrongAnswer(), 10000);
+            document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,0.4)";
+            document.getElementById("correct").innerText = "";
+            document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,0.4)";
+            document.getElementById("wrong").innerText = "";
+            console.log("uhhhm");
+            getNewEquation();
+            document.getElementById("timer").classList.add("timer");
+            setTimeout(wrongAnswer, 10000);
 
         }
         function correctAnswer(inputNum){
+            console.log("Correct answer");
+            document.getElementById("timer").classList.remove("timer");
             document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,1)";
             document.getElementById("correct").innerText = final;
+            score++;
+            checkScores();
         }
-        function wrongAnswer(inputNum){
+        function wrongAnswer(inputNum = "OOT"){
+            console.log("Wrong answer");
+            document.getElementById("timer").classList.remove("timer");
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,1)";
             document.getElementById("wrong").innerText = inputNum; 
             document.getElementById("correct").innerText = final;
+            checkScores();
 
         }
         function testForKeys(e){
+            console.log("key pressed: " + e.keycode);
             if (e.keyCode >= 48 && e.keyCode <= 57){ // 0-9 Keys only
                 switch (e.keyCode){
                     case 48: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
@@ -58,10 +86,9 @@
             }
         }
         window.onload = function(){
-            gameCountDown(); // Replace with an onclick;
-            document.getElementById("timer").classList.add("timer");
             document.addEventListener("keydown", testForKeys);
-            getNewEquation();
+            console.log("here");
+            gameCountDown(); // Replace with an onclick;
         };
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
