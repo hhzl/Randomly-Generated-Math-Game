@@ -24,6 +24,28 @@
             <div style="margin: 5px"></div>
             <div id="score"></div>
         </div>
+        <div class="buttons">
+            <div>
+                <div onclick="pressButton(1)" id="Button1" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">1</div>
+                <div onclick="pressButton(2)" id="Button2" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">2</div>
+                <div onclick="pressButton(3)" id="Button3" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">3</div>
+            </div>
+            <div>
+                <div onclick="pressButton(4)" id="Button4" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">4</div>
+                <div onclick="pressButton(5)" id="Button5" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">5</div>
+                <div onclick="pressButton(6)" id="Button6" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">6</div>
+            </div>
+            <div>
+                <div onclick="pressButton(7)" id="Button7" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">7</div>
+                <div onclick="pressButton(8)" id="Button8" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">8</div>
+                <div onclick="pressButton(9)" id="Button9" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">9</div>
+            </div>
+            <div>
+                <div style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; visiblity: hidden; display: inline-block"></div>
+                <div onclick="pressButton(0)" id="Button0" style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; background-color: gray; display: inline-block">0</div>
+                <div style="width: 25px; height:25px; text-align: center; line-height: 25px; border-radius: 50%; visiblity: hidden; display: inline-block"></div>
+            </div>
+        </div>
     </body>
 
     <script>
@@ -73,6 +95,20 @@
             document.getElementById("correct").innerText = final;
             checkScores();
 
+        }
+        function pressButton(buttonPressed){
+            switch (buttonPressed){
+                    case 0: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
+                    case 1: if(final == 1){correctAnswer(1);}else{wrongAnswer(1)} break;
+                    case 2: if(final == 2){correctAnswer(2);}else{wrongAnswer(2)} break;
+                    case 3: if(final == 3){correctAnswer(3);}else{wrongAnswer(3)} break;
+                    case 4: if(final == 4){correctAnswer(4);}else{wrongAnswer(4)} break;
+                    case 5: if(final == 5){correctAnswer(5);}else{wrongAnswer(5)} break;
+                    case 6: if(final == 6){correctAnswer(6);}else{wrongAnswer(6)} break;
+                    case 7: if(final == 7){correctAnswer(7);}else{wrongAnswer(7)} break;
+                    case 8: if(final == 8){correctAnswer(8);}else{wrongAnswer(8)} break;
+                    case 9: if(final == 9){correctAnswer(9);}else{wrongAnswer(9)} break;
+                }
         }
         function testForKeys(e){
             console.log("key pressed: " + e.keycode);
@@ -171,6 +207,8 @@
 
             if (parenthesis){ // Place around First Set
                 final = calculate(result, opt2, num3);
+                document.getElementById("left1").style.display = 'inline-block';
+                document.getElementById("right1").style.display = 'inline-block';
                 document.getElementById("left2").style.display = 'none';
                 document.getElementById("right2").style.display = 'none';
                 document.getElementById("num1").innerText = num1;
@@ -181,6 +219,8 @@
             }
             else{
                 final = calculate(num3, opt2, result);
+                document.getElementById("left2").style.display = 'inline-block';
+                document.getElementById("right2").style.display = 'inline-block';
                 document.getElementById("left1").style.display = 'none';
                 document.getElementById("right1").style.display = 'none';
                 document.getElementById("num1").innerText = num3;
