@@ -1,13 +1,18 @@
 <html>
     <head>
-        <link rel="stylesheet" type="text/css" href="/css/custom.css">
-        <link rel="stylesheet" href="/css/bootstrap.min">
-        <script src="/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="./css/custom.css">
+        <!--<link rel="stylesheet" href="./css/bootstrap.min">
+        <script src="./js/bootstrap.min.js"></script> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+        <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     </head>
     <body>
-        <div class="box">
-            <div style="width: 150px; height:10px; background-color: lightgray"><div id="timer" style="width: 150px; height:10px;"></div></div>
-            <div id="equation">
+        <div class="container">
+        <div class="box row">
+            <div class="col-1"></div><div class="col-10 timer-box"><div id="timer"></div></div>
+            <div id="equation" class="col-12">
                 <span id="left1">(</span>
                 <span id="num1"></span>
                 <span id="opt1"></span>
@@ -21,32 +26,33 @@
                 <span id="equals">?</span>
             </div>
             <div style="margin: 5px"></div>
-            <div id="correct" style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(0,255,0,0.4); display: inline-block"></div>
-            <div id="wrong"   style="width: 50px; height:50px; text-align: center; line-height: 50px; border-radius: 50%; background-color: rgba(255,0,0,0.4); display: inline-block"></div>
+            <div class="keypad" id="correct" style="background-color: rgba(0,255,0,0.4);"></div>
+            <div class="keypad" id="wrong"   style="background-color: rgba(255,0,0,0.4); float: right;"></div>
             <div style="margin: 5px"></div>
             <div id="score"></div>
         </div>
         <div class="buttons">
-            <div>
-                <div onclick="pressButton(1)" id="Button1" class="keypad">1</div>
-                <div onclick="pressButton(2)" id="Button2" class="keypad">2</div>
-                <div onclick="pressButton(3)" id="Button3" class="keypad">3</div>
+            <div class="row">
+                <div class="col-4"><div onclick="pressButton(1)" id="Button1" class="keypad keyRow1">1</div></div>
+                <div class="col-4"><div onclick="pressButton(2)" id="Button2" class="keypad keyRow2">2</div></div>
+                <div class="col-4"><div onclick="pressButton(3)" id="Button3" class="keypad keyRow3">3</div></div>
             </div>
-            <div>
-                <div onclick="pressButton(4)" id="Button4" class="keypad">4</div>
-                <div onclick="pressButton(5)" id="Button5" class="keypad">5</div>
-                <div onclick="pressButton(6)" id="Button6" class="keypad">6</div>
+            <div class="row">
+                <div class="col-4"><div onclick="pressButton(4)" id="Button4" class="keypad keyRow1">4</div></div>
+                <div class="col-4"><div onclick="pressButton(5)" id="Button5" class="keypad keyRow2">5</div></div>
+                <div class="col-4"><div onclick="pressButton(6)" id="Button6" class="keypad keyRow3">6</div></div>
             </div>
-            <div>
-                <div onclick="pressButton(7)" id="Button7" class="keypad">7</div>
-                <div onclick="pressButton(8)" id="Button8" class="keypad">8</div>
-                <div onclick="pressButton(9)" id="Button9" class="keypad">9</div>
+            <div class="row">
+                <div class="col-4"><div onclick="pressButton(7)" id="Button7" class="keypad keyRow1">7</div></div>
+                <div class="col-4"><div onclick="pressButton(8)" id="Button8" class="keypad keyRow2">8</div></div>
+                <div class="col-4"><div onclick="pressButton(9)" id="Button9" class="keypad keyRow3">9</div></div>
             </div>
-            <div>
-                <div style="visiblity: hidden;" class="keypad"></div>
-                <div onclick="pressButton(0)" id="Button0" class="keypad">0</div>
-                <div style="visiblity: hidden;" class="keypad"></div>
+            <div class="row">
+                <div class="col-4"><div style="visibility: hidden;" class="keypad keyRow1"></div></div>
+                <div class="col-4"><div onclick="pressButton(0)" id="Button0" class="keypad keyRow2">0</div></div>
+                <div class="col-4"><div style="visibility: hidden;" class="keypad keyRow3"></div></div>
             </div>
+        </div>
         </div>
     </body>
 

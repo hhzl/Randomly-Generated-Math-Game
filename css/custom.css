@@ -6,19 +6,54 @@
     90% {background-color:red; width: 10%}
     100% {background-color:red; width: 0%}
 }
+body{
+    font-size: 4vh !important;
+    color: white !important;
+}
+.container{
+    margin-top: 2em;
+    background-color: #000000;
+}
+.box{
+    padding-top: 25px;
+}
 .keypad{
-    width: 25px;
-    height:25px;
+    font-size: 8vh;
+    width: 10vh;
+    height:10vh;
     text-align: center;
-    line-height: 25px;
+    line-height: 9vh;
     border-radius: 50%;
     background-color: gray;
     display: inline-block;
 }
+.timer-box{
+    height: 1em;
+    padding: 0px;
+    background-color: lightgray;
+    padding: 0px !important;
+}
 .timer {
+    height: 1em;
     animation-name: countdown;
     animation-duration: 10s;
     animation-timing-function: linear;
     animation-delay: 0s;
     animation-iteration-count: 1;
+}
+.keyRow1{
+    float: right;
+}
+.keyRow2{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+.keyRow3{
+    float: left;
+}
+.centerBlock{
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
