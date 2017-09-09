@@ -11,8 +11,8 @@
     <body>
         <div class="container">
         <div class="box row">
-            <div class="col-1"></div><div class="col-10 timer-box"><div id="timer"></div></div>
-            <div id="equation" class="col-12">
+            <div class="col-6 timer-box offset-3"><div id="timer"></div></div>
+            <div id="equation" class="col-10 offset-1">
                 <span id="left1">(</span>
                 <span id="num1"></span>
                 <span id="opt1"></span>
@@ -29,7 +29,6 @@
             <div class="keypad" id="correct" style="background-color: rgba(0,255,0,0.4);"></div>
             <div class="keypad" id="wrong"   style="background-color: rgba(255,0,0,0.4); float: right;"></div>
             <div style="margin: 5px"></div>
-            <div id="score"></div>
         </div>
         <div class="buttons">
             <div class="row">
@@ -53,6 +52,7 @@
                 <div class="col-4"><div style="visibility: hidden;" class="keypad keyRow3"></div></div>
             </div>
         </div>
+        <div class="empty"></div>
         </div>
     </body>
 
@@ -69,7 +69,7 @@
                 if (plays == 0){
                     //Display final Score
                     console.log("Game has ended");
-                    document.getElementById("score").innerText = ("Final Score: " + score + "/10");
+                    document.getElementById("equation").innerHTML = ("Final Score: " + score + "/10");
                 }
                 else{
                     // Play More Rounds

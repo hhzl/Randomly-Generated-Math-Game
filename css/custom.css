@@ -11,11 +11,21 @@ body{
     color: white !important;
 }
 .container{
+    border-radius: 5%;
     margin-top: 2em;
-    background-color: #000000;
+    background-color: #d5e9ef;
 }
 .box{
     padding-top: 25px;
+}
+.buttons{
+    padding-top: 5vh;
+    background-color: #c9d7db;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.empty{
+    height: 10vh;
 }
 .keypad{
     font-size: 8vh;
@@ -24,17 +34,24 @@ body{
     text-align: center;
     line-height: 9vh;
     border-radius: 50%;
-    background-color: gray;
+    border-width: 1px;
+    border-color: gray;
+    background-color: rgba(0,0,0,0.5);
     display: inline-block;
 }
+.keypad:hover{
+    background-color: rgba(0,0,0,0.7);
+}
 .timer-box{
-    height: 1em;
+    height: 40px;
     padding: 0px;
     background-color: lightgray;
+    border: 1px solid darkgray;
     padding: 0px !important;
+    margin-bottom: 3vh;
 }
 .timer {
-    height: 1em;
+    height: 38px;
     animation-name: countdown;
     animation-duration: 10s;
     animation-timing-function: linear;
@@ -56,4 +73,14 @@ body{
     margin-left: auto;
     margin-right: auto;
     display: block;
+}
+#equation{
+    display: flex;
+    background-color: #d4ed9e;
+    border: 4px solid #c8e094;
+    color: #000000;
+}
+#equation > span{
+    display: flex;
+    justify-content: space-between;
 }
