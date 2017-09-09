@@ -23,7 +23,7 @@
                 <span id="num3"></span>
                 <span id="right2">)</span>
                 <span>=</span>
-                <span id="equals">?</span>
+                <span id="equals">?&nbsp;</span>
             </div>
             <div style="margin: 5px"></div>
             <div class="keypad" id="correct" style="background-color: rgba(0,255,0,0.4);"></div>
@@ -32,24 +32,32 @@
         </div>
         <div class="buttons">
             <div class="row">
-                <div class="col-4"><div onclick="pressButton(1)" id="Button1" class="keypad keyRow1">1</div></div>
-                <div class="col-4"><div onclick="pressButton(2)" id="Button2" class="keypad keyRow2">2</div></div>
-                <div class="col-4"><div onclick="pressButton(3)" id="Button3" class="keypad keyRow3">3</div></div>
+                <div class="col-12 text-center">
+                    <div onclick="pressButton(1)" id="Button1" class="keypad">1</div>
+                    <div onclick="pressButton(2)" id="Button2" class="keypad">2</div>
+                    <div onclick="pressButton(3)" id="Button3" class="keypad">3</div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-4"><div onclick="pressButton(4)" id="Button4" class="keypad keyRow1">4</div></div>
-                <div class="col-4"><div onclick="pressButton(5)" id="Button5" class="keypad keyRow2">5</div></div>
-                <div class="col-4"><div onclick="pressButton(6)" id="Button6" class="keypad keyRow3">6</div></div>
+                <div class="col-12 text-center">
+                    <div onclick="pressButton(4)" id="Button4" class="keypad">4</div>
+                    <div onclick="pressButton(5)" id="Button5" class="keypad">5</div>
+                    <div onclick="pressButton(6)" id="Button6" class="keypad">6</div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-4"><div onclick="pressButton(7)" id="Button7" class="keypad keyRow1">7</div></div>
-                <div class="col-4"><div onclick="pressButton(8)" id="Button8" class="keypad keyRow2">8</div></div>
-                <div class="col-4"><div onclick="pressButton(9)" id="Button9" class="keypad keyRow3">9</div></div>
+                <div class="col-12 text-center">
+                    <div onclick="pressButton(7)" id="Button7" class="keypad">7</div>
+                    <div onclick="pressButton(8)" id="Button8" class="keypad">8</div>
+                    <div onclick="pressButton(9)" id="Button9" class="keypad">9</div>
+                </div>
             </div>
             <div class="row">
-                <div class="col-4"><div style="visibility: hidden;" class="keypad keyRow1"></div></div>
-                <div class="col-4"><div onclick="pressButton(0)" id="Button0" class="keypad keyRow2">0</div></div>
-                <div class="col-4"><div style="visibility: hidden;" class="keypad keyRow3"></div></div>
+                <div class="col-12 text-center">
+                    <div style="visibility: hidden;" class="keypad">.</div>
+                    <div onclick="pressButton(0)" id="Button0" class="keypad">0</div>
+                    <div style="visibility: hidden;" class="keypad">.</div>
+                </div>
             </div>
         </div>
         <div class="empty"></div>
@@ -83,6 +91,7 @@
             document.getElementById("correct").innerText = "";
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,0.4)";
             document.getElementById("wrong").innerText = "";
+            document.getElementById("equals").innerText = "?";
             getNewEquation();
             document.getElementById("timer").classList.add("timer");
             mainTimer = setTimeout(wrongAnswer, 10000);
@@ -93,6 +102,7 @@
             document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,1)";
             document.getElementById("correct").innerText = final;
             document.getElementById("wrong").innerText = ".";
+            document.getElementById("equals").innerText = final;
             score++;
             checkScores();
         }
@@ -101,6 +111,7 @@
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,1)";
             document.getElementById("wrong").innerText = inputNum; 
             document.getElementById("correct").innerText = final;
+            document.getElementById("equals").innerText = final;
             checkScores();
 
         }

@@ -6,6 +6,10 @@
     90% {background-color:red; width: 10%}
     100% {background-color:red; width: 0%}
 }
+@keyframes leaveButton {
+    0%   {background-color:rgba(0,0,0,0.7);}
+    100% {background-color:rgba(0,0,0,0.5);}
+}
 body{
     font-size: 4vh !important;
     color: white !important;
@@ -14,6 +18,11 @@ body{
     border-radius: 5%;
     margin-top: 2em;
     background-color: #d5e9ef;
+    background: #d5e9ef; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#d5e9ef, #c9d7db, #c9d7db); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#d5e9ef, #c9d7db, #c9d7db); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#d5e9ef, #c9d7db, #c9d7db); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#d5e9ef, #c9d7db, #c9d7db); /* Standard syntax */
 }
 .box{
     padding-top: 25px;
@@ -41,6 +50,13 @@ body{
 }
 .keypad:hover{
     background-color: rgba(0,0,0,0.7);
+}
+.keypad:after{
+    animation-name: leaveButton;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: 1;
 }
 .timer-box{
     height: 40px;
@@ -75,12 +91,14 @@ body{
     display: block;
 }
 #equation{
-    display: flex;
     background-color: #d4ed9e;
     border: 4px solid #c8e094;
     color: #000000;
+    text-align: right;
 }
 #equation > span{
-    display: flex;
-    justify-content: space-between;
+    display: inline-block;
+}
+.text-center {
+   text-align:center
 }
