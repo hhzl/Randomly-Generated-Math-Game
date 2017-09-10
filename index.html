@@ -44,10 +44,10 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-12 text-center owner">Mathew's Math Game</div>
+                            <div class="col-12 text-center owner">Moose's Math Game</div>
                         </div>
                         <div class="row">
-                            <div id="equation" class="col-10 offset-1">
+                            <div id="equation" class="col-10 offset-1" data-toggle="tooltip" data-placement="bottom" title="Congratulations!">
                                 <span id="left1">(</span>
                                 <span id="num1"></span>
                                 <span id="opt1"></span>
@@ -115,9 +115,14 @@
             active = false;
             clearTimeout(mainTimer);
             setTimeout(function(){
+                $('#correct').tooltip('hide');
+                $('#wrong').tooltip('hide');
+                document.getElementById("correct").style.backgroundColor = '#308c19';
+                document.getElementById("wrong").style.backgroundColor = '#8c1922';
                 if (plays == 0){
                     //Display final Score
                     console.log("Game has ended");
+                    $('#equation').tooltip('show');
                     document.getElementById("equation").innerHTML = ("Final Score: " + score + "/10");
                 }
                 else{
@@ -128,11 +133,7 @@
         }
         function gameCountDown(){
             // Reset All Variables
-            document.getElementById("correct").style.backgroundColor = '#308c19';
-            document.getElementById("wrong").style.backgroundColor = '#8c1922';
             document.getElementById("equals").innerText = "?";
-            $('#correct').tooltip('hide');
-            $('#wrong').tooltip('hide');
             getNewEquation();
             document.getElementById("timer").classList.add("timer");
             mainTimer = setTimeout(wrongAnswer, 10000);
