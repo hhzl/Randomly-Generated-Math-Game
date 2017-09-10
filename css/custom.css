@@ -14,7 +14,7 @@ body{
     font-size: 4vh !important;
     color: white !important;
 }
-.calculator{
+.begin, .calculator{
     border-radius: 5%;
     margin-top: 2em;
     background-color: #d5e9ef;
@@ -37,18 +37,14 @@ body{
 .empty{
     height: 10vh;
 }
-/* .keypad{
-    font-size: 8vh;
-    width: 10vh;
-    height:10vh;
+ .light{
+    width: 4vh;
+    height:4vh;
     text-align: center;
     line-height: 9vh;
     border-radius: 50%;
-    border-width: 1px;
-    border-color: gray;
-    background-color: rgba(0,0,0,0.5);
     display: inline-block;
-} */
+}
 .vcenter {
     display: inline-block;
     vertical-align: middle;
@@ -107,17 +103,6 @@ body{
     animation-delay: 0s;
     animation-iteration-count: 1;
 }
-.keyRow1{
-    float: right;
-}
-.keyRow2{
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-}
-.keyRow3{
-    float: left;
-}
 .centerBlock{
     margin-left: auto;
     margin-right: auto;
@@ -141,4 +126,20 @@ body{
     font-family: "Lucida Console", Monaco, monospace;
     font-size: 3vh;
     color: #000000;
+}
+#correct{
+    background-color: #308c19;
+    margin: 5px;
+}
+#wrong{
+    background-color: #8c1922;
+    margin: 5px;
+    float: right;
+}
+.tooltip-inner {
+    font-size: 2vh;
+}
+.modal-content{
+    color:black;
+    font-size: 14px;
 }

@@ -10,71 +10,99 @@
     </head>
     <body>
         <div class="container">
+            <!-- Modal -->
+            <div class="modal fade" id="startGame" tabindex="-1" role="dialog" aria-labelledby="gameTitleLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="gameTitleLabel">Randomly Generated Math Game</h5>
+                    </div>
+                    <div class="modal-body">
+                        The goal of this game is to get as many correct math problems as you can. There will be 10 problems presented to you with a 2 second break between each. The catch is that they are randomly generated and you only have 10 seconds to answer.
+                        <br/><br/>
+                        <strong>Tips:</strong> <br/>
+                            - Only answers from 0-9 can appear.<br/>
+                            - All numbers are between 0 and 25.<br/>
+                            - Multiplication only occurs if 1 number is between 0 and 10.<br/>
+                            - Divison only occurs if there is no remainder.<br/>
+                            - You will be notified of a correct or incorrect answer.<br/>
+                        <br/>
+                        Have Fun!
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" onclick="startGame()" data-dismiss="modal">Begin</button>
+                    </div>
+                </div>
+            </div>
+            </div>
             <div class="row no-gutters">
-        <div class="col-12 col-lg-6 calculator">
-        <div class="box">
-            <div class="row">
-                <div class="col-6 timer-box offset-3">
-                    <div id="timer"></div>
+                <div class="col-12 col-lg-6 calculator">
+                    <div class="box">
+                        <div class="row">
+                            <div class="col-6 timer-box offset-3">
+                                <div id="timer"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center owner">Mathew's Math Game</div>
+                        </div>
+                        <div class="row">
+                            <div id="equation" class="col-10 offset-1">
+                                <span id="left1">(</span>
+                                <span id="num1"></span>
+                                <span id="opt1"></span>
+                                <span id="left2">(</span>
+                                <span id="num2"></span>
+                                <span id="right1">)</span>
+                                <span id="opt2"></span>
+                                <span id="num3"></span>
+                                <span id="right2">)</span>
+                                <span>=</span>
+                                <span id="equals">?&nbsp;</span>
+                            </div>
+                        </div>
+                        <div style="margin: 5px"></div>
+                        <div class="row">
+                            <div class="col-10 offset-1">
+                                <div class="light" id="correct" data-toggle="tooltip" data-placement="right" title="Correct!"></div>
+                                <div class="light" id="wrong" data-toggle="tooltip" data-placement="left" title="Incorrect!"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttons">
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div onclick="pressButton(1)" id="Button1" class="keypad">1</div>
+                                <div onclick="pressButton(2)" id="Button2" class="keypad">2</div>
+                                <div onclick="pressButton(3)" id="Button3" class="keypad">3</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div onclick="pressButton(4)" id="Button4" class="keypad">4</div>
+                                <div onclick="pressButton(5)" id="Button5" class="keypad">5</div>
+                                <div onclick="pressButton(6)" id="Button6" class="keypad">6</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div onclick="pressButton(7)" id="Button7" class="keypad">7</div>
+                                <div onclick="pressButton(8)" id="Button8" class="keypad">8</div>
+                                <div onclick="pressButton(9)" id="Button9" class="keypad">9</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 text-center">
+                                <div onclick="Help()" class="keypad help">Help</div>
+                                <div onclick="pressButton(0)" id="Button0" class="keypad">0</div>
+                                <div onclick="Info()" class="keypad info">Info</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="empty"></div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12 text-center owner">Mathew's Math Game</div>
-            </div>
-            <div class="row">
-                <div id="equation" class="col-10 offset-1">
-                    <span id="left1">(</span>
-                    <span id="num1"></span>
-                    <span id="opt1"></span>
-                    <span id="left2">(</span>
-                    <span id="num2"></span>
-                    <span id="right1">)</span>
-                    <span id="opt2"></span>
-                    <span id="num3"></span>
-                    <span id="right2">)</span>
-                    <span>=</span>
-                    <span id="equals">?&nbsp;</span>
-                </div>
-            </div>
-            <div style="margin: 5px"></div>
-            <div class="keypad" id="correct" style="background-color: rgba(0,255,0,0.4);"></div>
-            <div class="keypad" id="wrong"   style="background-color: rgba(255,0,0,0.4); float: right;"></div>
-            <div style="margin: 5px"></div>
         </div>
-        <div class="buttons">
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div onclick="pressButton(1)" id="Button1" class="keypad">1</div>
-                    <div onclick="pressButton(2)" id="Button2" class="keypad">2</div>
-                    <div onclick="pressButton(3)" id="Button3" class="keypad">3</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div onclick="pressButton(4)" id="Button4" class="keypad">4</div>
-                    <div onclick="pressButton(5)" id="Button5" class="keypad">5</div>
-                    <div onclick="pressButton(6)" id="Button6" class="keypad">6</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div onclick="pressButton(7)" id="Button7" class="keypad">7</div>
-                    <div onclick="pressButton(8)" id="Button8" class="keypad">8</div>
-                    <div onclick="pressButton(9)" id="Button9" class="keypad">9</div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 text-center">
-                    <div style="" class="keypad help">Help</div>
-                    <div onclick="pressButton(0)" id="Button0" class="keypad">0</div>
-                    <div style="" class="keypad info">Info</div>
-                </div>
-            </div>
-        </div>
-        <div class="empty"></div>
-        </div>
-        </div>
-    </div>
     </body>
 
     <script>
@@ -100,11 +128,11 @@
         }
         function gameCountDown(){
             // Reset All Variables
-            document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,0.4)";
-            document.getElementById("correct").innerText = "";
-            document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,0.4)";
-            document.getElementById("wrong").innerText = "";
+            document.getElementById("correct").style.backgroundColor = '#308c19';
+            document.getElementById("wrong").style.backgroundColor = '#8c1922';
             document.getElementById("equals").innerText = "?";
+            $('#correct').tooltip('hide');
+            $('#wrong').tooltip('hide');
             getNewEquation();
             document.getElementById("timer").classList.add("timer");
             mainTimer = setTimeout(wrongAnswer, 10000);
@@ -113,18 +141,16 @@
         function correctAnswer(inputNum){
             document.getElementById("timer").classList.remove("timer");
             document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,1)";
-            document.getElementById("correct").innerText = final;
-            document.getElementById("wrong").innerText = ".";
             document.getElementById("equals").innerText = final;
+            $('#correct').tooltip('show');
             score++;
             checkScores();
         }
-        function wrongAnswer(inputNum = "OOT"){
+        function wrongAnswer(inputNum = "Time"){
             document.getElementById("timer").classList.remove("timer");
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,1)";
-            document.getElementById("wrong").innerText = inputNum; 
-            document.getElementById("correct").innerText = final;
             document.getElementById("equals").innerText = final;
+            $('#wrong').tooltip('show');
             checkScores();
 
         }
@@ -160,9 +186,15 @@
                 }
             }
         }
-        window.onload = function(){
+        function startGame(rounds = 10){
             document.addEventListener("keydown", testForKeys);
-            gameCountDown(); // Replace with an onclick;
+            gameCountDown();
+        }
+        window.onload = function(){
+            $('#startGame').modal({
+                backdrop: 'static',
+                keyboard: false
+                },'show');
         };
         function getRandomInt(min, max) {
             return Math.floor(Math.random() * (max - min + 1) + min);
