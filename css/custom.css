@@ -13,6 +13,7 @@
 body{
     font-size: 4vh !important;
     color: white !important;
+    background-color: cadetblue !important;
 }
 .begin, .calculator{
     border-radius: 5%;
@@ -50,14 +51,25 @@ body{
     vertical-align: middle;
     float: none;
 }
-.help, .info{
-    font-size: 5vh !important;
+.help{
+    font-size: 4vh !important;
+    background-color:#fb3939 !important;
+}
+.info{
+    font-size: 4vh !important;
     background-color: #8ef2ff !important;
 }
-.help:hover, .info:hover{
+.help:hover{
+    background-color: #e43535 !important;
+}
+.info:hover{
     background-color: #8eecf8 !important;
 }
-.help:active, .info:active{
+.help:active{
+    background-color: #c33232 !important;
+}
+
+.info:active{
     background-color: #87e2ee !important;
 }
 .keypad{
