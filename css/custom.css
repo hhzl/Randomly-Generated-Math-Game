@@ -141,5 +141,9 @@ body{
 }
 .modal-content{
     color:black;
+    font-size: 2vh;
+}
+#gameTitleLabel{
+    color:black;
     font-size: 2.5vh;
 }
