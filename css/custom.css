@@ -84,7 +84,7 @@ body{
     border-radius: 20%;
     border-width: 1px;
     border-color: gray;
-    background-color: #f6ff8e;
+    background-color: #ffffff; /*#f6ff8e;*/
     display: inline-block;
     vertical-align: middle;
     -webkit-box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.75);
@@ -92,10 +92,10 @@ body{
     box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.75);
 }
 .keypad:hover{
-    background-color: #e9f288;
+    background-color: #ececec; /*#e9f288;*/
 }
 .keypad:active{
-    background-color: #e1e986;
+    background-color: #dedede; /*#e1e986;*/
     -ms-transform: translate(1px, 1px); /* IE 9 */
     -webkit-transform: translate(1px, 1px); /* Safari */
     transform: translate(1px, 1px);
