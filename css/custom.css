@@ -108,7 +108,7 @@ body{
     padding: 0px !important;
 }
 .timer {
-    height: 4.95vh;
+    height: 4.85vh;
     animation-name: countdown;
     animation-duration: 10s;
     animation-timing-function: linear;
