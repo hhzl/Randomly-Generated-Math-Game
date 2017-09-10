@@ -119,8 +119,8 @@
             setTimeout(function(){
                 $('#correct').tooltip('hide');
                 $('#wrong').tooltip('hide');
-                document.getElementById("correct").style.backgroundColor = '#308c19';
-                document.getElementById("wrong").style.backgroundColor = '#8c1922';
+                document.getElementById("correct").classList.remove("glow-green");
+                document.getElementById("wrong").classList.remove("glow-red");
                 if (plays == 0){
                     //Display final Score
                     console.log("Game has ended");
@@ -139,11 +139,10 @@
             getNewEquation();
             document.getElementById("timer").classList.add("timer");
             mainTimer = setTimeout(wrongAnswer, 10000);
-
         }
         function correctAnswer(inputNum){
             document.getElementById("timer").classList.remove("timer");
-            document.getElementById("correct").style.backgroundColor = "rgba(0,255,0,1)";
+            document.getElementById("correct").classList.add("glow-green");
             document.getElementById("equals").innerText = final;
             $('#correct').tooltip('show');
             score++;
@@ -151,7 +150,7 @@
         }
         function wrongAnswer(inputNum){
             document.getElementById("timer").classList.remove("timer");
-            document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,1)";
+            document.getElementById("wrong").classList.add("glow-red");
             document.getElementById("equals").innerText = final;
             $('#wrong').tooltip('show');
             checkScores();
