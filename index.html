@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="./css/custom.css">
@@ -11,7 +12,7 @@
     <body>
         <div class="container">
             <!-- Modal -->
-            <div class="modal fade" id="startGame" tabindex="-1" role="dialog" aria-labelledby="gameTitleLabel" aria-hidden="true">
+            <div class="modal" id="startGame" tabindex="-1" role="dialog" aria-labelledby="gameTitleLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -147,7 +148,7 @@
             score++;
             checkScores();
         }
-        function wrongAnswer(inputNum = "Time"){
+        function wrongAnswer(inputNum){
             document.getElementById("timer").classList.remove("timer");
             document.getElementById("wrong").style.backgroundColor = "rgba(255,0,0,1)";
             document.getElementById("equals").innerText = final;
@@ -187,7 +188,7 @@
                 }
             }
         }
-        function startGame(rounds = 10){
+        function startGame(){
             document.addEventListener("keydown", testForKeys);
             gameCountDown();
         }
