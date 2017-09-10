@@ -10,20 +10,31 @@
     </head>
     <body>
         <div class="container">
-        <div class="box row">
-            <div class="col-6 timer-box offset-3"><div id="timer"></div></div>
-            <div id="equation" class="col-10 offset-1">
-                <span id="left1">(</span>
-                <span id="num1"></span>
-                <span id="opt1"></span>
-                <span id="left2">(</span>
-                <span id="num2"></span>
-                <span id="right1">)</span>
-                <span id="opt2"></span>
-                <span id="num3"></span>
-                <span id="right2">)</span>
-                <span>=</span>
-                <span id="equals">?&nbsp;</span>
+            <div class="row no-gutters">
+        <div class="col-12 col-lg-6 calculator">
+        <div class="box">
+            <div class="row">
+                <div class="col-6 timer-box offset-3">
+                    <div id="timer"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 text-center owner">Mathew's Math Game</div>
+            </div>
+            <div class="row">
+                <div id="equation" class="col-10 offset-1">
+                    <span id="left1">(</span>
+                    <span id="num1"></span>
+                    <span id="opt1"></span>
+                    <span id="left2">(</span>
+                    <span id="num2"></span>
+                    <span id="right1">)</span>
+                    <span id="opt2"></span>
+                    <span id="num3"></span>
+                    <span id="right2">)</span>
+                    <span>=</span>
+                    <span id="equals">?&nbsp;</span>
+                </div>
             </div>
             <div style="margin: 5px"></div>
             <div class="keypad" id="correct" style="background-color: rgba(0,255,0,0.4);"></div>
@@ -54,14 +65,16 @@
             </div>
             <div class="row">
                 <div class="col-12 text-center">
-                    <div style="visibility: hidden;" class="keypad">.</div>
+                    <div style="" class="keypad help">Help</div>
                     <div onclick="pressButton(0)" id="Button0" class="keypad">0</div>
-                    <div style="visibility: hidden;" class="keypad">.</div>
+                    <div style="" class="keypad info">Info</div>
                 </div>
             </div>
         </div>
         <div class="empty"></div>
         </div>
+        </div>
+    </div>
     </body>
 
     <script>
@@ -132,7 +145,6 @@
             }
         }
         function testForKeys(e){
-            console.log("key pressed: " + e.keycode);
             if (e.keyCode >= 48 && e.keyCode <= 57 && active){ // 0-9 Keys only
                 switch (e.keyCode){
                     case 48: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
