@@ -173,7 +173,7 @@
             }
         }
         function testForKeys(e){
-            if (e.keyCode >= 48 && e.keyCode <= 57 && active){ // 0-9 Keys only
+            if ((e.keyCode >= 48 && e.keyCode <= 57) || (e.keyCode >= 96 && e.keyCode <= 105) && active){ // 0-9 Keys only
                 switch (e.keyCode){
                     case 48: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
                     case 49: if(final == 1){correctAnswer(1);}else{wrongAnswer(1)} break;
@@ -185,7 +185,7 @@
                     case 55: if(final == 7){correctAnswer(7);}else{wrongAnswer(7)} break;
                     case 56: if(final == 8){correctAnswer(8);}else{wrongAnswer(8)} break;
                     case 57: if(final == 9){correctAnswer(9);}else{wrongAnswer(9)} break;
-                    //Keypad
+                    //Keycode
                     case 96: if(final == 0){correctAnswer(0);}else{wrongAnswer(0)} break;
                     case 97: if(final == 1){correctAnswer(1);}else{wrongAnswer(1)} break;
                     case 98: if(final == 2){correctAnswer(2);}else{wrongAnswer(2)} break;
